@@ -18,6 +18,7 @@ function App() {
   return (
     <div style={{ padding: 20 }}>
       <h1>Danh sách sản phẩm (MERN)</h1>
+      <h2>Thêm vào để test</h2>
       <ul>
         {products.map(p => (
           // Thêm dấu ? để tránh lỗi nếu dữ liệu chưa kịp về
