@@ -4,7 +4,7 @@ function App() {
   const [products, setProducts] = useState([]);
 
   // URL_BACKEND: Sau này deploy xong sẽ thay bằng link Render
-  // Hiện tại cứ để trống hoặc localhost để code không lỗi
+  // Hiện tại cứ để trống hoặc localhost để code không lỗi !!
   const API_URL = 'https://mern-project-oetq.vercel.app/api/products';
 
   useEffect(() => {
