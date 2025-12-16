@@ -1,0 +1,14 @@
+name: Deploy Frontend to Vercel
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'frontend/**' # Chỉ chạy khi có thay đổi ở thư mục frontend
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Gửi lệnh Deploy tới Vercel
+        run: curl -X POST "${{ secrets.VERCEL_HOOK }}"
