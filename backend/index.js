@@ -16,7 +16,7 @@ mongoose.connect(MONGO_URI)
     .catch(err => console.error('❌ Lỗi kết nối MongoDB:', err));
 
 // --- BƯỚC MỚI: ĐỊNH NGHĨA MODEL (KHUNG DỮ LIỆU) ---
-// Tạo quy ước: Một sản phẩm phải có tên (name) và giá (price).
+// Tạo quy ước: Một sản phẩm phải có tên (name) và giá (price)......
 const productSchema = new mongoose.Schema({
     name: String,
     price: Number
