@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  # 1. Cấu hình cho Database MongoDB (Chạy bản local trong Docker)
+  mongo:
+    image: mongo:latest
+    container_name: mern-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db # Để dữ liệu không bị mất khi tắt Docker
+
+  # 2. Cấu hình cho Backend
+  server:
+    build: ./backend
+    container_name: mern-backend
+    ports:
+      - "5000:5000"
+    environment:
+      # Kết nối tới service 'mongo' ở trên thay vì localhost
+      - MONGO_URI=mongodb://mongo:27017/mern_db
+    depends_on:
+      - mongo # Chờ mongo chạy xong mới chạy backend
+
+  # 3. Cấu hình cho Frontend
+  client:
+    build: ./frontend
+    container_name: mern-frontend
+    ports:
+      - "3000:3000"
+    stdin_open: true # Fix lỗi React tự thoát trong Docker
+    tty: true
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000/api/products
+    depends_on:
+      - server
+
+# Khai báo volume để lưu dữ liệu DB
+volumes:
+  mongo-data:
