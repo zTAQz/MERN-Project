@@ -5,7 +5,7 @@ function App() {
 
   // --- SỬA DÒNG NÀY ---
   // Thay link Vercel bằng link Render của bạn:
-  const API_URL = 'https://mern-project-kuy5.onrender.com/api/products';
+  const API_URL = 'https://mern-project-yu11.onrender.com/api/products';
   // --------------------
 
   useEffect(() => {
